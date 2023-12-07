@@ -1,52 +1,48 @@
-import ListPic from '../assets/vivo.jpeg'
+import React, { useState } from 'react';
+import ListPic from '../assets/vivo.jpeg';
 
 function Product() {
-    return (
-        <div className="my-8 p-2">
-            <div className="flex flex-wrap justify-center gap-2">
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Vivo</p>
-                </div>
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Oppo</p>
-                </div>
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Samsung</p>
-                </div>
-            </div>
+  const [showMore, setShowMore] = useState(false);
 
-            <div className="my-4">
-                <h2 className="text-2xl text-center">Best seller Product</h2>
-                <div className="flex flex-wrap justify-center my-4 gap-2">
-                    <button className="py-2 px-3 rounded bg-blue-400 text-white">All</button>
-                    <button className="py-2 px-3 rounded border-2 border-blue-400 hover:bg-blue-400">Gaming</button>
-                    <button className="py-2 px-3 rounded border-2 border-blue-400 hover:bg-blue-400">Iphone</button>
-                </div>
+  // Define your product data here
+  const products = [
+    { name: 'Vivo', id: 1 },
+    { name: 'Oppo', id: 2 },
+    { name: 'Samsung', id: 3 },
+    { name: 'Rog', id: 4 },
+    { name: 'Iphone 12', id: 5 },
+    { name: 'Samsung Z flip', id: 6 },
+    { name: 'Rog', id: 7 },
+  ];
 
-            <div className="my-8 flex flex-wrap justify-center gap-2">
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Rog</p>
-                </div>
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Iphone 12</p>
-                </div>
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Samsung Z flip</p>
-                </div>
-                <div>
-                    <img src={ListPic} alt="list-img" />
-                    <p className="flex justify-center p-2">Rog</p>
-                </div>
-            </div>
-         </div>
+  // Adjust the number of products to show based on the showMore state
+  const visibleProducts = showMore ? products : products.slice(0, 3);
+
+  return (
+    <div className="my-8 p-2">
+      <div className="flex flex-wrap justify-center gap-2">
+        {visibleProducts.map((product) => (
+          <div key={product.id}>
+            <img src={ListPic} alt="list-img" />
+            <p className="flex justify-center p-2">{product.name}</p>
+          </div>
+        ))}
+      </div>
+
+      {!showMore && (
+        <div className="text-center my-4">
+          <button
+            onClick={() => setShowMore(true)}
+            className="py-2 px-3 rounded bg-blue-400 text-white"
+          >
+            Read More
+          </button>
         </div>
-    )
+      )}
+
+      {/* Add your "Best seller Product" section here */}
+    </div>
+  );
 }
 
 export default Product;
