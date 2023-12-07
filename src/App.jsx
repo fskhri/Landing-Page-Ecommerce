@@ -1,7 +1,6 @@
 // App.jsx
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home-section';
 import Product from './components/product-section';
@@ -13,11 +12,11 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/products" component={Product} />
-          <Route path="/services" component={OurService} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/services" element={<OurService />} />
+        </Routes>
         <Footer />
       </div>
     </Router>
