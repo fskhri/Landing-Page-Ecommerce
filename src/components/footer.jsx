@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="bg-black text-white">
+    <div className="my-[182px] bg-black text-white">
       <div className="p-4 flex flex-wrap justify-center gap-10">
         <div className="p-0">
           <p className="text-lg font-bold text-slate-100">Address</p>

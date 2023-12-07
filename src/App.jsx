@@ -10,7 +10,7 @@ import Footer from './components/footer';
 function App() {
   return (
     <Router>
-      <div>
+      <div className="h-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
