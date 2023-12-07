@@ -1,17 +1,20 @@
-import Pic from '../assets/hpSection.png'
+import Pic from '../assets/img-home.png'
 
 function Home() {
     return (
-        <div className="my-6 p-5 flex flex-wrap justify-between items-center">
+        <div className="my-6 p-5 flex flex-wrap gap-12 items-center">
             <div className="flex my-6 justify-start">
-                <div className="p-2 m-4">
-                    <h1 className="text-3xl text-bold">Pusat Hp Berkualitas</h1>
-                    <p className='text-md my-4'>Beli hp berkualitas terjamin? ManganCode solusinya</p>
-                    <button type="submit" className="py-2 px-3 rounded bg-blue-400 hover:bg-blue-300 text-white">Beli Sekarang</button>
-                </div>
-            </div>
+                
             <div className="flex justify-center m-3">
+            </div>
                 <img src={Pic} alt="home section" />
+            </div>
+            <div className="flex justify-center my-6 items-center w-1/2">
+                <div className="p-6 ">
+                    <h1 className="text-2xl font-bold">Best seller SmartPhone</h1>
+                    <p className="my-5 text-slate-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, ipsam! Eligendi quibusdam impedit labore consequatur harum repudiandae dolor, reiciendis ducimus deserunt, dolores assumenda odio ratione Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, recusandae!</p>
+                    <button className="bg-transparent mt-6 py-2 px-4 rounded-3xl border-2 border-blue-400 hover:bg-blue-400 hover:text-white fa-solid fa-use">start shopping</button>
+                </div>
             </div>
         </div>
     )
