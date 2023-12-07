@@ -5,8 +5,7 @@ function Product() {
   const [showMoreAll, setShowMoreAll] = useState(false);
   const [showMoreBestSeller, setShowMoreBestSeller] = useState(false);
 
-  // Define your product data here
-  const allProducts = [
+  const products = [
     { name: 'Vivo', id: 1 },
     { name: 'Oppo', id: 2 },
     { name: 'Samsung', id: 3 },
@@ -24,13 +23,20 @@ function Product() {
   ];
 
   const renderProductSection = (sectionProducts, sectionTitle, showMore, setShowMore) => (
-    <div className="my-8 flex flex-wrap justify-center gap-2">
-      {sectionProducts.map((product) => (
-        <div key={product.id}>
-          <img src={ListPic} alt="list-img" />
-          <p className="flex justify-center p-2">{product.name}</p>
-        </div>
-      ))}
+    <div className="my-8">
+      <h2 className="text-2xl mb-4">{sectionTitle}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {sectionProducts.map((product) => (
+          <div key={product.id} className="bg-white p-4 rounded shadow-md">
+            <img
+              src={ListPic}
+              alt="list-img"
+              className="w-full h-32 object-contain mb-2"
+            />
+            <p className="text-center">{product.name}</p>
+          </div>
+        ))}
+      </div>
       {!showMore && (
         <div className="text-center my-4">
           <button
@@ -46,8 +52,7 @@ function Product() {
 
   return (
     <div className="my-8 p-2">
-      {renderProductSection(allProducts.slice(0, 3), 'All Products', showMoreAll, setShowMoreAll)}
-
+      {renderProductSection(products.slice(0, 3), 'All Products', showMoreAll, setShowMoreAll)}
       {renderProductSection(
         bestSellerProducts.slice(0, 3),
         'Best Seller Products',
