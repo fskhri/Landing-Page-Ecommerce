@@ -1,14 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 import Pic from '../assets/img-home.png';
 
 function Home() {
+  // Animation for the image
+  const imageSpring = useSpring({
+    from: { opacity: 0, transform: 'translateY(50px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: { duration: 500 },
+  });
+
   return (
     <div className="my-6 p-5 flex flex-wrap gap-12 items-center">
       <div className="flex my-6 justify-start">
-        <div className="flex justify-center m-3">
-          <img src={Pic} alt="home section" />
-        </div>
+        <animated.div style={imageSpring}>
+          <div className="flex justify-center m-3">
+            <img src={Pic} alt="home section" className="w-full h-auto" />
+          </div>
+        </animated.div>
       </div>
       <div className="flex justify-center my-6 items-center w-1/2">
         <div className="p-6">
