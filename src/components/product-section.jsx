@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ListPic from '../assets/hp-product.png';
-import ListMerk from '../assets/vivo.png';
+import ListMerkVivo from '../assets/vivo.png';
 
 function Product() {
-  const [showMoreBestSeller, setShowMoreBestSeller] = useState(false);
+  const [showMoreBestSeller, setShowMoreBestSeller] = useState(0);
+  const [selectedBrand, setSelectedBrand] = useState(0);
 
   const bestSellerProducts = [
     { name: 'Vivo', id: 1 },
@@ -15,10 +16,20 @@ function Product() {
     { name: 'Rog', id: 7 },
     {name: 'Huawei', id:8}
   ];
+  
+  const merkListHp = [
+    {merk : 'vivo Y17s', price: '1.599.000', id: 1},
+    {merk: 'vivo Y27s', price: '2.399.000', id: 2},
+    {merk: 'vivo V29e', price: '4.399.000', id: 3},
+    {merk : 'vivo V29', price: '5.499.000', id: 4},
+    {merk: 'vivo Y27 5G', price: '2.599.000', id: 5},
+    {merk: 'vivo Y02t', price: '1.399.000', id: 6},
+    {merk: 'vivo Y36 5G', price: '3.499.000', id: 7},
+    {merk: 'vivo V25pro', price: '5.699.000', id: 8}];
 
   const renderProductSection = (sectionProducts, sectionTitle, showMore, setShowMore) => {
     const maxItemsToShow = showMore ? sectionProducts.length : 5;
-
+    
     return (
       <div className="p-6 my-8">
         <h2 className="text-center text-2xl mb-4">{sectionTitle}</h2>
@@ -54,7 +65,7 @@ function Product() {
           <button className="py-2 px-4 bg-blue-400 rounded text-white">VIVO</button>
           <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">OPPO</button>
           <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">SAMSUNG</button>
-          <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">README</button>
+          <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">REDMI</button>
           <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">REALME</button>
           <button className="py-2 px-4 bg-transparent border-2 border-blue-400 rounded hover:bg-blue-400 hover:text-white">INFINIX</button>
         </div>
@@ -62,86 +73,16 @@ function Product() {
         
         <div className="pt-8">
           <div className="flex flex-wrap justify-center gap-3">
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
+          {merkListHp.map((merkList) => (
+            <div key={merkList.id} className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
+            <img src={ListMerkVivo} alt="vivo"/>
+            <p className="pt-2 text-lg text-center">{merkList.merk}</p>
+            <p className="pt-2 text-md text-center">{merkList.price}</p>
             <div className="flex justify-center mt-2">
                 <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
               </div>
           </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
-          <div className="p-2 w-[200px] rounded-md border-2 border-slate-100 hover:shadow-lg">
-            <img src={ListMerk} alt="vivo"/>
-            <p className="pt-2 text-lg text-center">Y17s</p>
-            <p className="pt-2 text-md text-center">Rp 1.599.000</p>
-            <div className="flex justify-center mt-2">
-                <button className="bg-blue-400 text-white py-1 px-3 rounded">Buy</button>
-              </div>
-          </div>
+         ))}
           </div>
         </div>
       </div>
