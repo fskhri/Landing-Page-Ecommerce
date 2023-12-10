@@ -26,7 +26,7 @@ function Home() {
           </div>
         </animated.div>
       </div>
-      <div className="flex justify-center my-6 items-center w-1/2">
+      <div className="flex justify-center my-6 items-center md:w-1/2">
         <animated.div style={textSpring}>
           <div className="p-6">
             <h1 className="text-2xl font-bold">Best seller SmartPhone</h1>

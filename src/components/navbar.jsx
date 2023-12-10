@@ -16,14 +16,14 @@ function Navbar() {
   };
 
   return (
-    <div className="p-8 bg-white flex flex-wrap justify-between">
+    <div className="p-8 bg-white flex flex-wrap justify-between shadow-md">
       <div className="flex justify-center">
         <Link to="/" className="text-blue-400 font-bold text-2xl">
           ManganCode
         </Link>
       </div>
       <div className="hidden md:flex gap-3 list-none">
-        <ul className="flex gap-3 list-none">
+        <ul className="flex items-center gap-3 list-none">
           <li>
             <Link to="/" className="decoration-none hover:text-blue-300">
               HOME
