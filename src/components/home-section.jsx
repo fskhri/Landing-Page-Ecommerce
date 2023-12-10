@@ -4,18 +4,17 @@ import { useSpring, animated } from 'react-spring';
 import Pic from '../assets/img-home.png';
 
 function Home() {
-  // Animation for the image
+  
   const imageSpring = useSpring({
     from: { opacity: 0, transform: 'translateY(50px)' },
     to: { opacity: 1, transform: 'translateY(0)' },
     config: { duration: 500 },
   });
 
-  // Animation for the text
   const textSpring = useSpring({
     from: { opacity: 0, transform: 'translateY(50px)' },
     to: { opacity: 1, transform: 'translateY(0)' },
-    config: { duration: 500, delay: 200 }, // Adding a delay to start text animation after the image animation
+    config: { duration: 500, delay: 200 },
   });
 
   return (
