@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const updateCartCount = (newCount) => {
+    setCartCount(newCount);
   };
 
   return (
@@ -30,6 +35,11 @@ function Navbar() {
           <li>
             <Link to="/services" className="decoration-none hover:text-blue-300">
               SERVICE
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart" className="decoration-none hover:text-blue-300">
+              CART ({cartCount})
             </Link>
           </li>
           <li>
@@ -76,6 +86,15 @@ function Navbar() {
                 onClick={handleMobileMenuToggle}
               >
                 SERVICE
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cart"
+                className="decoration-none hover:text-blue-300"
+                onClick={handleMobileMenuToggle}
+              >
+                CART ({cartCount})
               </Link>
             </li>
             <li>
