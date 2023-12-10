@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { RxHamburgerMenu } from "react-icons/rx";
+import { IoClose } from "react-icons/io5";
 
 function Navbar() {
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
   const handleMobileMenuToggle = () => {
@@ -55,12 +57,11 @@ function Navbar() {
       <div className="md:hidden">
         <button
           onClick={handleMobileMenuToggle}
-          className="text-blue-400 focus:outline-none"
-        >
-          {isMobileMenuOpen ? 'Close' : 'Menu'}
+          className="text-blue-400 focus:outline-none absolute right-0 mr-3">
+          {isMobileMenuOpen ? <IoClose className="text-2xl"/> : <RxHamburgerMenu className="text-2xl text-bold"/>}
         </button>
         {isMobileMenuOpen && (
-          <ul className="flex flex-col gap-3 list-none">
+          <ul className="mt-8 flex flex-col gap-3 list-none absolute bg-white py-4 px-6 rounded shadow-md right-0 mr-4 leading-8">
             <li>
               <Link
                 to="/"
