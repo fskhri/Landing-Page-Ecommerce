@@ -4,11 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 
 function Navbar() {
-<<<<<<< HEAD
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(0);
-=======
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
->>>>>>> fed4ff3 (make a cart (not working rn) and make login page)
   const [cartCount, setCartCount] = useState(0);
 
   const handleMobileMenuToggle = () => {
